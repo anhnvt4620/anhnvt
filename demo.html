@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tam Thiên Thế Giới - Demo</title>
+    
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#667eea">
+    <link rel="apple-touch-icon" href="./icons/icon-192x192.png">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        .logo {
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin: 30px 0;
+        }
+        
+        .feature-list li {
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1rem;
+        }
+        
+        .feature-list li:before {
+            content: "✅";
+            font-size: 1.5rem;
+        }
+        
+        .button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin: 10px 0;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .button.secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .note {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+        
+        .note:before {
+            content: "💡 ";
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🌏</div>
+        <h1 class="title">Tam Thiên Thế Giới</h1>
+        <p class="subtitle">Trò chơi kể chuyện tương tác với AI</p>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <span class="stat-number" id="games-count">0</span>
+                <span class="stat-label">Trò chơi</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="chapters-count">0</span>
+                <span class="stat-label">Chương</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="words-count">0</span>
+                <span class="stat-label">Từ</span>
+            </div>
+        </div>
+        
+        <ul class="feature-list">
+            <li>Tạo câu chuyện với AI (GPT-4, Claude, Gemini)</li>
+            <li>Lưu trữ trên cloud với Firebase</li>
+            <li>Đồng bộ đa thiết bị</li>
+            <li>Cài đặt như app native (PWA)</li>
+            <li>Hoạt động offline</li>
+        </ul>
+        
+        <div class="note">
+            App đang trong giai đoạn phát triển. Hiện tại version online đang chạy với IndexedDB (lưu local). Version Firebase (cloud storage) sẽ được deploy sau khi setup xong.
+        </div>
+        
+        <button class="button" onclick="window.location.href='https://anhnvt4620.github.io/anhnvt/'">
+            🚀 Mở App Hiện Tại
+        </button>
+        
+        <button class="button secondary" onclick="showFirebaseInfo()">
+            🔥 Xem Hướng Dẫn Firebase
+        </button>
+        
+        <div id="firebase-info" style="display: none; margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 12px;">
+            <h3 style="margin-bottom: 15px;">📋 Các bước setup Firebase:</h3>
+            <ol style="line-height: 2; padding-left: 20px;">
+                <li>Tạo project tại <a href="https://console.firebase.google.com/" target="_blank" style="color: #667eea;">Firebase Console</a></li>
+                <li>Bật Google Authentication</li>
+                <li>Tạo Firestore Database</li>
+                <li>Copy config vào <code>app.js</code></li>
+                <li>Deploy lên GitHub Pages</li>
+            </ol>
+            <p style="margin-top: 15px;">
+                <a href="./FIREBASE-SETUP.md" target="_blank" style="color: #667eea; font-weight: 600;">
+                    📖 Xem hướng dẫn chi tiết →
+                </a>
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        // Load stats from localStorage
+        function loadStats() {
+            try {
+                const request = indexedDB.open('TamThienDB', 1);
+                request.onsuccess = (e) => {
+                    const db = e.target.result;
+                    if (db.objectStoreNames.contains('games')) {
+                        const tx = db.transaction('games', 'readonly');
+                        const store = tx.objectStore('games');
+                        const getAllRequest = store.getAll();
+                        
+                        getAllRequest.onsuccess = () => {
+                            const games = getAllRequest.result || [];
+                            document.getElementById('games-count').textContent = games.length;
+                            
+                            let totalChapters = 0;
+                            let totalWords = 0;
+                            games.forEach(game => {
+                                if (game.chapters) totalChapters += game.chapters.length || 0;
+                                if (game.content) totalWords += (game.content.match(/\S+/g) || []).length;
+                            });
+                            
+                            document.getElementById('chapters-count').textContent = totalChapters;
+                            document.getElementById('words-count').textContent = totalWords.toLocaleString();
+                        };
+                    }
+                };
+            } catch (e) {
+                console.log('No existing data');
+            }
+        }
+        
+        function showFirebaseInfo() {
+            const info = document.getElementById('firebase-info');
+            info.style.display = info.style.display === 'none' ? 'block' : 'none';
+        }
+        
+        loadStats();
+        
+        // Service Worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./service-worker.js');
+        }
+    </script>
+</body>
+</html>
