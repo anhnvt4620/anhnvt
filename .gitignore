@@ -1,0 +1,28 @@
+# Tam Thiên Thế Giới
+
+node_modules/
+.env
+.env.local
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Build
+dist/
+build/
+.cache/
+
+# Temporary
+temp/
+tmp/
+*.tmp
