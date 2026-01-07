@@ -22013,30 +22013,6 @@ const Vo = ({className: n}) => l.jsx("svg", {
         disabled: !1,
         Icon: Qo
     }, {
-        id: "info",
-        label: "Thông tin",
-        description: "Hiển thị thông tin về nhà phát triển dự án.",
-        action: m,
-        disabled: !1,
-        Icon: G5
-    }, {
-        id: "support",
-        label: "Ủng hộ",
-        description: "Ủng hộ dự án nếu bạn cảm thấy nó có giá trị.",
-        action: y,
-        disabled: !1,
-        Icon: P5
-    }, {
-        id: "discord",
-        label: "Discord",
-        description: "Tham gia cộng đồng Discord của dự án.",
-        action: () => {
-            window.open("https://discord.gg/sPq3Y37eR7", "_blank", "noopener,noreferrer")
-        }
-        ,
-        disabled: !1,
-        Icon: V5
-    }, {
         id: "settings",
         label: "Thiết lập",
         description: "Tùy chỉnh khóa API, model AI và các cài đặt khác.",
